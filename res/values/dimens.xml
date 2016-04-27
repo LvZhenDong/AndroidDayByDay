@@ -3,5 +3,11 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-
+    <!-- 引导页 -->
+	<dimen name="btn_guideActivity_enterBtn_marginBottom">30dp</dimen>
+	<dimen name="ll_guideActivity_dots_marginBottom">30dp</dimen>
+	<dimen name="btn_guideActivity_enterBtn_textSize">23sp</dimen>
+	<dimen name="iv_guideActivity_text_marginTop">30dp</dimen>
+	<dimen name="ibtn_guideActivity_dot_paddingLeft">10dp</dimen>
+	<dimen name="ibtn_guideAcctivity_dot_paddingRigth">10dp</dimen>
 </resources>
