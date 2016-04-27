@@ -1,3 +1,2 @@
-# Abstract
-Just for my Android study.
-
+# 摘要
+我每天的Android学习。
