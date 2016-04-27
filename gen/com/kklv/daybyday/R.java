@@ -42,7 +42,7 @@ public final class R {
         public static final int guide_text2=0x7f020009;
         public static final int guide_text3=0x7f02000a;
         public static final int guide_text4=0x7f02000b;
-        public static final int ic_launcher=0x7f02000c;
+        public static final int icon=0x7f02000c;
         public static final int selector_guide_dot=0x7f02000d;
         public static final int selector_guide_enter_btn=0x7f02000e;
     }
