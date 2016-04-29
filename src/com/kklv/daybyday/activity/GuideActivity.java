@@ -9,6 +9,7 @@ import com.kklv.daybyday.R.layout;
 import com.kklv.daybyday.adapter.ViewPagerAdapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -75,13 +76,14 @@ public class GuideActivity extends Activity{
 				
 			}
 		});
-		
+		//跳转到主界面
 		mEnterBtn.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
+				Intent intent=new Intent(GuideActivity.this,MainActivity.class);
+				startActivity(intent);
 			}
 		});
 	}
