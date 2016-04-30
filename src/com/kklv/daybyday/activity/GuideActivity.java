@@ -84,6 +84,7 @@ public class GuideActivity extends Activity{
 				// TODO Auto-generated method stub
 				Intent intent=new Intent(GuideActivity.this,MainActivity.class);
 				startActivity(intent);
+				finish();
 			}
 		});
 	}
