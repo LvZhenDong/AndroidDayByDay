@@ -81,10 +81,7 @@ public class GuideActivity extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent intent=new Intent(GuideActivity.this,MainActivity.class);
-				startActivity(intent);
-				finish();
+				
 			}
 		});
 	}
