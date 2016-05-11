@@ -7,9 +7,11 @@ import com.kklv.daybyday.R.drawable;
 import com.kklv.daybyday.R.id;
 import com.kklv.daybyday.R.layout;
 import com.kklv.daybyday.adapter.ViewPagerAdapter;
+import com.kklv.daybyday.utils.SharedPreferencesUtils;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -20,6 +22,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 /**
  * 引导页
@@ -28,6 +31,7 @@ import android.widget.LinearLayout;
  *
  */
 public class GuideActivity extends Activity{
+	private RelativeLayout mRl;	//整个界面
 	private ViewPager mGuideVP;
 	private LinearLayout mDotsLL;	//小红点
 	private Button mEnterBtn;	//立即进入按钮
@@ -41,6 +45,7 @@ public class GuideActivity extends Activity{
 		setContentView(R.layout.activity_guide);
 		
 		bindId();
+		showOrJump();
 		initPager();
 		
 		mGuideVP.setAdapter(new ViewPagerAdapter(viewList));
@@ -81,14 +86,37 @@ public class GuideActivity extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				
+				jumpToMainActivity();
 			}
 		});
 	}
-	
-	
+	/**
+	 * 显示引导页，或者跳转到主界面
+	 */
+	private void showOrJump(){
+		if(!isFirstInstall()){
+			jumpToMainActivity();
+		}else{
+			mRl.setVisibility(View.VISIBLE);
+		}
+	}
+	/**
+	 * 应用是否第一次安装
+	 * @return
+	 */
+	private boolean isFirstInstall(){
+		
+		if(!SharedPreferencesUtils.contains(this, SharedPreferencesUtils.FIRST_INSTALL) 
+				|| "".equals(SharedPreferencesUtils.get(this, SharedPreferencesUtils.FIRST_INSTALL, ""))){
+			SharedPreferencesUtils.put(this, SharedPreferencesUtils.FIRST_INSTALL, 
+					SharedPreferencesUtils.FIRST_INSTALL);
+			return true;
+		}
+		return false;
+	}
 	
 	private void bindId(){
+		mRl=(RelativeLayout) findViewById(R.id.rl_guide);
 		mGuideVP=(ViewPager) findViewById(R.id.vp_guide);
 		mDotsLL=(LinearLayout) findViewById(R.id.ll_guide);
 		mEnterBtn=(Button) findViewById(R.id.ibtn_guide);
@@ -138,4 +166,8 @@ public class GuideActivity extends Activity{
 		return view;
 	}
 	
+	private void jumpToMainActivity(){
+		startActivity(new Intent(this,MainActivity.class));
+		finish();
+	}
 }

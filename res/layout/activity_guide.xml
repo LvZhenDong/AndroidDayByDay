@@ -2,6 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="gone"
+    android:id="@+id/rl_guide"
     tools:context="com.kklv.daybyday.activity.MainActivity" >
 
     <android.support.v4.view.ViewPager
